@@ -23,7 +23,7 @@ namespace Crazy_Cat_Lady
 			MethodInfo DefOfHelperInfo = AccessTools.Method(typeof(DefOfHelper), "EnsureInitializedInCtor");
 			if (!harmony.GetPatchedMethods().Contains(DefOfHelperInfo))
 				harmony.Patch(DefOfHelperInfo, new HarmonyMethod(typeof(Mod), "EnsureInitializedInCtorPrefix"), null);
-
+			
 			harmony.PatchAll();
 		}
 

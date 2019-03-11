@@ -55,4 +55,14 @@
     <Compile Include="**\*.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(SolutionDir)..\..\RimWorldWin64.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug -quicktest|AnyCPU' ">
+      <StartArguments>-quicktest</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release -quicktest|AnyCPU' ">
+      <StartArguments>-quicktest</StartArguments>
+  </PropertyGroup>
 </Project>
