@@ -10,7 +10,9 @@ namespace Crazy_Cat_Lady
 	public static class CatIdentifier
 	{
 		public static bool IsCat(this Pawn pawn) =>
-			pawn.def == CatDefOf.Cat || pawn.RaceProps?.leatherDef == CatDefOf.Leather_Panthera;
+			pawn.def == CatDefOf.Cat ||
+			pawn.RaceProps?.useMeatFrom == CatDefOf.Cat ||
+			pawn.RaceProps?.leatherDef == CatDefOf.Leather_Panthera;
 		//morbid way to find what big cats are
 	}
 	public class ThoughtWorker_CrazyCatLady : ThoughtWorker
