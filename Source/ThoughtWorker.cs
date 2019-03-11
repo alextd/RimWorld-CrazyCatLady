@@ -7,12 +7,6 @@ using RimWorld;
 
 namespace Crazy_Cat_Lady
 {
-	[DefOf]
-	public static class CatDefOf
-	{
-		public static ThingDef Cat;
-		public static ThingDef Leather_Panthera;
-	}
 	public class ThoughtWorker_CrazyCatLady : ThoughtWorker
 	{
 		protected override ThoughtState CurrentStateInternal(Pawn pawn)

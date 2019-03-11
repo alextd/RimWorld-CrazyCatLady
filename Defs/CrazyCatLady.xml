@@ -53,4 +53,45 @@
 		</stages>
 	</ThoughtDef>
 
+
+	<MentalBreakDef>
+		<defName>TD_Wander_FollowCat</defName>
+		<mentalState>TD_Wander_FollowCat</mentalState>
+		<baseCommonality>2</baseCommonality>
+		<intensity>Minor</intensity>
+	</MentalBreakDef>
+	<MentalStateDef ParentName="BaseMentalState">
+		<defName>TD_Wander_FollowCat</defName>
+		<workerClass>Crazy_Cat_Lady.MentalStateWorker_CatDistraction</workerClass>
+		<label>distracted by a cat</label>
+		<category>Misc</category>
+		<colonistsOnly>true</colonistsOnly>
+		<minTicksBeforeRecovery>1000</minTicksBeforeRecovery>
+		<recoveryMtbDays>0.04</recoveryMtbDays>
+		<maxTicksBeforeRecovery>2000</maxTicksBeforeRecovery>
+		<recoverFromSleep>true</recoverFromSleep>
+		<moodRecoveryThought>TD_CuteKitty</moodRecoveryThought>
+		<blockNormalThoughts>true</blockNormalThoughts>
+		<nameColor>(0.65, 0.9, 0.93)</nameColor>
+		<recoveryMessage>{0} is no longer distracted by cats.</recoveryMessage>
+		<beginLetterLabel>cat distraction</beginLetterLabel>
+		<beginLetter>{0} has noticed a cute kitty and is following it around.</beginLetter>
+		<beginLetterDef>NeutralEvent</beginLetterDef>
+		<baseInspectLine>Mental state: Cat Distraction</baseInspectLine>
+		<allowBeatfire>true</allowBeatfire>
+		<unspawnedCanDo>true</unspawnedCanDo>
+		<escapingPrisonersIgnore>true</escapingPrisonersIgnore>
+	</MentalStateDef>
+
+	<ThoughtDef>
+		<defName>TD_CuteKitty</defName>
+		<durationDays>0.5</durationDays>
+		<stages>
+			<li>
+				<label>cute kitty</label>
+				<description>Look at the cute kitty.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
 </Defs>

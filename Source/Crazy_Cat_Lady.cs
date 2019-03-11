@@ -7,6 +7,15 @@ using Harmony;
 
 namespace Crazy_Cat_Lady
 {
+	[DefOf]
+	public static class CatDefOf
+	{
+		public static ThingDef Cat;
+		public static ThingDef Leather_Panthera;
+		public static MentalStateDef TD_Wander_FollowCat;
+		public static TraitDef TD_CrazyCatLady;
+	}
+
 	public class Mod : Verse.Mod
 	{
 		public Mod(ModContentPack content) : base(content)
