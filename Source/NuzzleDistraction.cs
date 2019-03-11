@@ -15,7 +15,8 @@ namespace Crazy_Cat_Lady
 		//private void AddNuzzledThought(Pawn initiator, Pawn recipient)
 		public static void Postfix(Pawn initiator, Pawn recipient)
 		{
-			recipient.mindState.mentalStateHandler.TryStartMentalState(CatDefOf.TD_Wander_FollowCat, transitionSilently: true);
+			if(initiator.IsCat())
+				recipient.mindState.mentalStateHandler.TryStartMentalState(CatDefOf.TD_Wander_FollowCat, transitionSilently: true);
 		}
 	}
 
@@ -25,8 +26,7 @@ namespace Crazy_Cat_Lady
 		protected override IntVec3 GetExactWanderDest(Pawn pawn)
 		{
 			IEnumerable<Thing> cats = pawn.Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer)
-				.Where(p => p.def == CatDefOf.Cat ||
-				p.RaceProps.leatherDef == CatDefOf.Leather_Panthera).Cast<Thing>();
+				.Where(CatIdentifier.IsCat).Cast<Thing>();
 			Thing cat = GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, cats, PathEndMode.ClosestTouch, TraverseParms.For(pawn));
 			if (cat == null)
 			{

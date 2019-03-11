@@ -7,13 +7,18 @@ using RimWorld;
 
 namespace Crazy_Cat_Lady
 {
+	public static class CatIdentifier
+	{
+		public static bool IsCat(this Pawn pawn) =>
+			pawn.def == CatDefOf.Cat || pawn.RaceProps?.leatherDef == CatDefOf.Leather_Panthera;
+		//morbid way to find what big cats are
+	}
 	public class ThoughtWorker_CrazyCatLady : ThoughtWorker
 	{
 		protected override ThoughtState CurrentStateInternal(Pawn pawn)
 		{
 			int catCount = pawn.Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer)
-				.Count(p => p.def == CatDefOf.Cat ||
-				p.RaceProps.leatherDef == CatDefOf.Leather_Panthera);//morbid way to find what big cats are
+				.Count(CatIdentifier.IsCat);//morbid way to find what big cats are
 
 			if (catCount == 0)
 				return ThoughtState.ActiveAtStage(0);
