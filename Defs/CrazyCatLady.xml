@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>TD.CrazyCatLady</defName>
+    <commonality>0.5</commonality>
+    <degreeDatas>
+      <li>
+        <label>crazy cat lady</label>
+        <description>{PAWN_nameDef} loves cats. {PAWN_pronoun} loves every kind of cat, and wants to hug all of them, and wants them in a basket with bowties. {PAWN_nameDef} will be sad without cats, and happier with more cats in the colony. But {PAWN_pronoun} will also be distracted by them occasionally. And {PAWN_pronoun} loves to run, but is thinking about cats while running.</description>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+	<ThoughtDef>
+		<defName>TD.HappyCatLady</defName>
+		<workerClass>Crazy_Cat_Lady.ThoughtWorker_CrazyCatLady</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<requiredTraits>
+			<li>TD.CrazyCatLady</li>
+		</requiredTraits>
+		<stages>
+			<li>
+				<label>no cats</label>
+				<description>Life is unbearable without cats around.</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+			<li>
+				<label>one cat</label>
+				<description>We have one cat. He needs a friend, though.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<label>cats!</label>
+				<description>We have two cats! They make me happy. Meow!</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+			<li>
+				<label>cats!</label>
+				<description>Squeee! We have cats! Purrrrr</description>
+				<baseMoodEffect>10</baseMoodEffect>
+			</li>
+			<li>
+				<label>cats!</label>
+				<description>There are SO MANY CATS! I can barely contain my excitement!</description>
+				<baseMoodEffect>13</baseMoodEffect>
+			</li>
+			<li>
+				<label>cats!</label>
+				<description>DWAAAHEEEAHHHH HEEEHAAAH NHAAAAWEEAAHHH</description>
+				<baseMoodEffect>15</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+</Defs>
