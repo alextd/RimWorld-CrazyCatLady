@@ -62,6 +62,7 @@
 	</MentalBreakDef>
 	<MentalStateDef ParentName="BaseMentalState">
 		<defName>TD_Wander_FollowCat</defName>
+		<stateClass>Crazy_Cat_Lady.MentalState_TD_Wander_Cat</stateClass>
 		<workerClass>Crazy_Cat_Lady.MentalStateWorker_CatDistraction</workerClass>
 		<label>distracted by a cat</label>
 		<category>Misc</category>
@@ -74,9 +75,8 @@
 		<blockNormalThoughts>true</blockNormalThoughts>
 		<nameColor>(0.65, 0.9, 0.93)</nameColor>
 		<recoveryMessage>{0} is no longer distracted by cats.</recoveryMessage>
-		<beginLetterLabel>cat distraction</beginLetterLabel>
 		<beginLetter>{0} has noticed a cute kitty and is following it around.</beginLetter>
-		<beginLetterDef>NeutralEvent</beginLetterDef>
+			<!-- but transitionSilently so no letter, stateClass makes it a message-->
 		<baseInspectLine>Mental state: Cat Distraction</baseInspectLine>
 		<allowBeatfire>true</allowBeatfire>
 		<unspawnedCanDo>true</unspawnedCanDo>

@@ -15,7 +15,7 @@ namespace Crazy_Cat_Lady
 		//private void AddNuzzledThought(Pawn initiator, Pawn recipient)
 		public static void Postfix(Pawn initiator, Pawn recipient)
 		{
-			recipient.mindState.mentalStateHandler.TryStartMentalState(CatDefOf.TD_Wander_FollowCat);
+			recipient.mindState.mentalStateHandler.TryStartMentalState(CatDefOf.TD_Wander_FollowCat, transitionSilently: true);
 		}
 	}
 
@@ -41,6 +41,16 @@ namespace Crazy_Cat_Lady
 		}
 	}
 
+	public class MentalState_TD_Wander_Cat: MentalState
+	{
+		public override void PostStart(string reason)
+		{
+			if (PawnUtility.ShouldSendNotificationAbout(pawn) && GetBeginLetterText() is string text)
+				Messages.Message(text, this.pawn, MessageTypeDefOf.NegativeEvent, false);
+			base.PostStart(reason);
+		}
+		
+	}
 
 	public class MentalStateWorker_CatDistraction : MentalStateWorker
 	{
