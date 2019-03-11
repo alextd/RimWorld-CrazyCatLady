@@ -2,7 +2,7 @@
 <Defs>
 
   <TraitDef>
-    <defName>TD.CrazyCatLady</defName>
+    <defName>TD_CrazyCatLady</defName>
     <commonality>0.5</commonality>
     <degreeDatas>
       <li>
@@ -13,11 +13,11 @@
   </TraitDef>
 
 	<ThoughtDef>
-		<defName>TD.HappyCatLady</defName>
+		<defName>TD_HappyCatLady</defName>
 		<workerClass>Crazy_Cat_Lady.ThoughtWorker_CrazyCatLady</workerClass>
 		<validWhileDespawned>true</validWhileDespawned>
 		<requiredTraits>
-			<li>TD.CrazyCatLady</li>
+			<li>TD_CrazyCatLady</li>
 		</requiredTraits>
 		<stages>
 			<li>
