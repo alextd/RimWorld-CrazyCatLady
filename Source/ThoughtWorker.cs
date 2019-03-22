@@ -22,7 +22,7 @@ namespace Crazy_Cat_Lady
 		protected override ThoughtState CurrentStateInternal(Pawn pawn)
 		{
 			int catCount = pawn.Map?.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer)
-				.Count(CatIdentifier.IsCat) ?? -1;//morbid way to find what big cats are
+				.Count(CatIdentifier.IsCat) ?? -1;
 
 			if (catCount < 0)
 				return ThoughtState.Inactive;
