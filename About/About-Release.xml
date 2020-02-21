@@ -4,7 +4,9 @@
 	<author>Uuugggg</author>
 	<supportedVersions>
 		<li>1.0</li>
+		<li>1.1</li>
 	</supportedVersions>
+	<packageId>Uuugggg.CrazyCatLady</packageId>
 	<description>Adds the colonist trait: "Crazy Cat Lady"</description>
 	<url>https://steamcommunity.com/id/Uuugggg/myworkshopfiles/?appid=294100</url>
 </ModMetaData>

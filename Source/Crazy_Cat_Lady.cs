@@ -3,7 +3,7 @@ using System.Linq;
 using Verse;
 using RimWorld;
 using UnityEngine;
-using Harmony;
+using HarmonyLib;
 
 namespace Crazy_Cat_Lady
 {
@@ -23,10 +23,10 @@ namespace Crazy_Cat_Lady
 			// initialize settings
 			// GetSettings<Settings>();
 #if DEBUG
-			HarmonyInstance.DEBUG = true;
+			Harmony.DEBUG = true;
 #endif
 
-			HarmonyInstance harmony = HarmonyInstance.Create("Uuugggg.rimworld.Crazy_Cat_Lady.main");
+			Harmony harmony = new Harmony("Uuugggg.rimworld.Crazy_Cat_Lady.main");
 
 			//Turn off DefOf warning since harmony patches trigger it.
 			MethodInfo DefOfHelperInfo = AccessTools.Method(typeof(DefOfHelper), "EnsureInitializedInCtor");

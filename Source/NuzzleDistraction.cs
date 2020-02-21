@@ -5,7 +5,7 @@ using System.Text;
 using Verse;
 using Verse.AI;
 using RimWorld;
-using Harmony;
+using HarmonyLib;
 
 namespace Crazy_Cat_Lady
 {
