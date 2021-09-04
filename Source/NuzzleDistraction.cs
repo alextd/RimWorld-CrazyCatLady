@@ -45,7 +45,7 @@ namespace Crazy_Cat_Lady
 	{
 		public override void PostStart(string reason)
 		{
-			if (PawnUtility.ShouldSendNotificationAbout(pawn) && GetBeginLetterText() is string text)
+			if (PawnUtility.ShouldSendNotificationAbout(pawn) && GetBeginLetterText() is TaggedString text)
 				Messages.Message(text, this.pawn, MessageTypeDefOf.NegativeEvent, false);
 			base.PostStart(reason);
 		}
