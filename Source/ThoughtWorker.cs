@@ -12,11 +12,11 @@ namespace Crazy_Cat_Lady
 		public static bool IsCat(this Pawn pawn) =>
 			pawn.def == CatDefOf.Cat ||
 			pawn.RaceProps?.useMeatFrom == CatDefOf.Cat ||
-			pawn.RaceProps?.leatherDef == CatDefOf.Leather_Panthera ||
+			pawn.RaceProps?.leatherDef == CatDefOf.Leather_Panthera || //morbid way to find what big cats are
 			(pawn.def?.defName?.ToLower().Contains("cat") ?? false) ||
 			(pawn.def?.defName?.ToLower().Contains("tiger") ?? false) ||//because it's hard to determine what is a cat
 			(pawn.kindDef?.defName?.ToLower().Contains("cat") ?? false);
-		//morbid way to find what big cats are
+		
 	}
 	public class ThoughtWorker_CrazyCatLady : ThoughtWorker
 	{
