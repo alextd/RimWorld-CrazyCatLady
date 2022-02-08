@@ -6,14 +6,9 @@ using RimWorld;
 
 namespace Crazy_Cat_Lady
 {
-	class Settings : ModSettings
+	public class Settings : ModSettings
 	{
 		public bool setting;
-
-		public static Settings Get()
-		{
-			return LoadedModManager.GetMod<Crazy_Cat_Lady.Mod>().GetSettings<Settings>();
-		}
 
 		public void DoWindowContents(Rect wrect)
 		{
