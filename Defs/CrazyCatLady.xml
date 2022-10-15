@@ -79,7 +79,6 @@
 			<!-- but transitionSilently so no letter, stateClass makes it a message-->
 		<baseInspectLine>Mental state: Cat Distraction</baseInspectLine>
 		<allowBeatfire>true</allowBeatfire>
-		<unspawnedCanDo>true</unspawnedCanDo>
 		<escapingPrisonersIgnore>true</escapingPrisonersIgnore>
 	</MentalStateDef>
 
