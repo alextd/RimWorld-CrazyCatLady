@@ -19,6 +19,7 @@
 		<requiredTraits>
 			<li>TD_CrazyCatLady</li>
 		</requiredTraits>
+		<label>crazy cat lady</label>
 		<stages>
 			<li>
 				<label>no cats</label>
