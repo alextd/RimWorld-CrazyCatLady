@@ -1,16 +1,45 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
 using RimWorld;
+using HarmonyLib;
 
 namespace Crazy_Cat_Lady
 {
+	[StaticConstructorOnStartup]
 	public static class CatIdentifier
 	{
+		public static HashSet<ThingDef> extraCatDefs = new();
+		static CatIdentifier()
+		{
+			try
+			{
+				Log.Message($"CrazyCatLady Trying for ErinsCatOverhaulSettings");
+
+				Type erinModType = AccessTools.TypeByName("ErinsCatOverhaulMod");
+				if (erinModType == null) return;
+
+				FieldInfo ErinsCatSettingsInfo = AccessTools.Field(erinModType, "settings");
+				MethodInfo LoadedPresentAnimalsSetsInfo = AccessTools.PropertyGetter("ErinsCatOverhaulSettings:LoadedPresentAnimalsSets");
+				Dictionary<ThingDef, bool> erinsCatDefs = (Dictionary<ThingDef, bool>)LoadedPresentAnimalsSetsInfo.Invoke(ErinsCatSettingsInfo.GetValue(null), new object[] { });
+
+				extraCatDefs.AddRange(from kvp in erinsCatDefs where kvp.Value select kvp.Key);
+
+				Log.Message($"CrazyCatLady Got ErinsCatOverhaulSettings: {extraCatDefs.ToStringSafeEnumerable()}");
+			}
+			catch (Exception e)
+			{
+				Verse.Log.Warning($"CrazyCatLady failed to get ErinsCatOverhaulSettings: {e}");
+				//Sallright.
+			}
+		}
+
 		public static bool IsCat(this Pawn pawn) =>
 			pawn.def == CatDefOf.Cat ||
+			extraCatDefs.Contains(pawn.def) || 
 			pawn.RaceProps?.useMeatFrom == CatDefOf.Cat ||
 			pawn.RaceProps?.leatherDef == CatDefOf.Leather_Panthera || //morbid way to find what big cats are
 			(pawn.def?.defName?.ToLower().Contains("cat") ?? false) ||
